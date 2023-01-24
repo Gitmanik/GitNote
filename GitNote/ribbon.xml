@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" loadImage="GetImage">
+    <ribbon>
+        <tabs>
+          <tab idMso="TabHome">
+                <group id="groupGitNote" label="GitNote">
+                    <button id="buttonGitNote" label="GitNote" size="large" screentip="GitNote" onAction="GitNoteButtonClicked" image="Logo.png"/>
+                </group>
+            
+          </tab>
+            <tab id="tabGitNote2" label="GitNote2">
+                <group id="groupGitNote2" label="GitNote2">
+					<button id="buttonNewSetu2p" label="GitNote" size="large" screentip="GitNote2" onAction="GitNoteButtonClicked" image="Logo.png"/>
+				</group>
+            </tab>
+        </tabs>
+    </ribbon>
+</customUI>
