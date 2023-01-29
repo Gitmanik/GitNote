@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" loadImage="GetImage">
-    <ribbon>
-        <tabs>
-          <tab idMso="TabHome">
-                <group id="groupGitNote" label="GitNote">
-                    <button id="buttonGitNote" label="GitNote" size="large" screentip="GitNote" onAction="GitNoteButtonClicked" image="Logo.png"/>
-                </group>
-            
-          </tab>
-            <tab id="tabGitNote2" label="GitNote2">
-                <group id="groupGitNote2" label="GitNote2">
-					<button id="buttonNewSetu2p" label="GitNote" size="large" screentip="GitNote2" onAction="GitNoteButtonClicked" image="Logo.png"/>
-				</group>
-            </tab>
-        </tabs>
-    </ribbon>
+  <ribbon>
+    <tabs>
+      <tab idMso="TabHome">
+        <group id="groupGitNote" label="GitNote">
+          <button id="buttonGitNoteHome" label="GitNote" size="large" screentip="GitNote" onAction="GitNoteButtonClicked" image="Logo.png" />
+          <button id="buttonGitNoteMathHome" label="Math Panel Test" size="large" screentip="nat2htest" onAction="GitNoteButtonClickedMath" image="Logo.png" />
+        </group>
+      </tab>
+      <tab id="tabGitNote" label="GitNote">
+        <group id="groupGitNote" label="GitNote">
+          <button id="buttonNewSetup" label="GitNote" size="large" screentip="GitNote" onAction="GitNoteButtonClickedMath" image="Logo.png" />
+          <button id="buttonGitNoteMath" label="Math Panel Test" size="large" screentip="MathTest" onAction="GitNoteButtonClickedMath" image="Logo.png" />
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
 </customUI>

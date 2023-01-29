@@ -1,4 +1,4 @@
-﻿"DeployProject"
+"DeployProject"
 {
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
@@ -15,32 +15,32 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_1C4EADB9A05140EDAD8223D146C2BDB6"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_692D7E391D074D36AD2530720FB8D6C4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6FCEF25C115BB90EEBF5A2CDA9AA5E52"
-        "OwnerKey" = "8:_8D28CA6C6C9819835B43A612C9B73D18"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_87EE05F60B3EE9BE34FDD5ADBC02B0CD"
-        "OwnerKey" = "8:_8D28CA6C6C9819835B43A612C9B73D18"
+        "OwnerKey" = "8:_8E4C0769517E69172FE1BCDFEB9CEE4F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8D28CA6C6C9819835B43A612C9B73D18"
+        "MsmKey" = "8:_8E4C0769517E69172FE1BCDFEB9CEE4F"
         "OwnerKey" = "8:_692D7E391D074D36AD2530720FB8D6C4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_FBFDD0D6814BB42E02FDFE61544C453D"
-        "OwnerKey" = "8:_692D7E391D074D36AD2530720FB8D6C4"
+        "MsmKey" = "8:_E680B045B646173F78DA69F2AA0E8A49"
+        "OwnerKey" = "8:_8E4C0769517E69172FE1BCDFEB9CEE4F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -52,13 +52,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FBFDD0D6814BB42E02FDFE61544C453D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8D28CA6C6C9819835B43A612C9B73D18"
+        "OwnerKey" = "8:_8E4C0769517E69172FE1BCDFEB9CEE4F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -94,42 +88,10 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.8"
                     {
-                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
-                    "ProductCode" = "8:.NETFramework,Version=v4.5"
-                    }
-                }
-            }
-        }
-        "LocalDebug"
-        {
-        "DisplayName" = "8:LocalDebug"
-        "IsDebugOnly" = "11:FALSE"
-        "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:LocalDebug\\Setup.msi"
-        "PackageFilesAs" = "3:2"
-        "PackageFileSize" = "3:-2147483648"
-        "CabType" = "3:1"
-        "Compression" = "3:2"
-        "SignOutput" = "11:FALSE"
-        "CertificateFile" = "8:"
-        "PrivateKeyFile" = "8:"
-        "TimeStampServer" = "8:"
-        "InstallerBootstrapper" = "3:2"
-            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
-            {
-            "Enabled" = "11:TRUE"
-            "PromptEnabled" = "11:TRUE"
-            "PrerequisitesLocation" = "2:1"
-            "Url" = "8:"
-            "ComponentsUrl" = "8:"
-                "Items"
-                {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
-                    {
-                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
-                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    "Name" = "8:Microsoft .NET Framework 4.8 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.8"
                     }
                 }
             }
@@ -186,7 +148,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:v4.5 "
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.8"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=395269"
                 }
@@ -194,10 +156,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6FCEF25C115BB90EEBF5A2CDA9AA5E52"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1C4EADB9A05140EDAD8223D146C2BDB6"
             {
-            "SourcePath" = "8:MSO.DLL"
-            "TargetName" = "8:MSO.DLL"
+            "SourcePath" = "8:Resources\\license.rtf"
+            "TargetName" = "8:license.rtf"
             "Tag" = "8:"
             "Folder" = "8:_76DE0C3E4C3C41398EBF2960C9F81C36"
             "Condition" = "8:"
@@ -211,7 +173,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_87EE05F60B3EE9BE34FDD5ADBC02B0CD"
@@ -241,24 +203,24 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:FALSE"
+            "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8D28CA6C6C9819835B43A612C9B73D18"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8E4C0769517E69172FE1BCDFEB9CEE4F"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.Microsoft.Office.Core, Version=2.8.0.0, Culture=neutral, processorArchitecture=AMD64"
+            "AssemblyAsmDisplayName" = "8:Interop.micautLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_8D28CA6C6C9819835B43A612C9B73D18"
+                    "_8E4C0769517E69172FE1BCDFEB9CEE4F"
                     {
-                    "Name" = "8:Interop.Microsoft.Office.Core.dll"
+                    "Name" = "8:Interop.micautLib.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:Interop.Microsoft.Office.Core.dll"
+            "SourcePath" = "8:Interop.micautLib.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_76DE0C3E4C3C41398EBF2960C9F81C36"
@@ -276,21 +238,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FBFDD0D6814BB42E02FDFE61544C453D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E680B045B646173F78DA69F2AA0E8A49"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.Microsoft.Office.Interop.OneNote, Version=1.1.0.0, Culture=neutral, processorArchitecture=AMD64"
-                "ScatterAssemblies"
-                {
-                    "_FBFDD0D6814BB42E02FDFE61544C453D"
-                    {
-                    "Name" = "8:Interop.Microsoft.Office.Interop.OneNote.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Interop.Microsoft.Office.Interop.OneNote.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:micaut.dll"
+            "TargetName" = "8:micaut.dll"
             "Tag" = "8:"
             "Folder" = "8:_76DE0C3E4C3C41398EBF2960C9F81C36"
             "Condition" = "8:"
@@ -302,8 +253,8 @@
             "Permanent" = "11:FALSE"
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
+            "Register" = "3:4"
+            "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -429,30 +380,30 @@
         {
         "Name" = "8:GitNote"
         "ProductName" = "8:GitNote"
-        "ProductCode" = "8:{78C89C59-E3ED-4D7F-A378-883CCC18A1C0}"
-        "PackageCode" = "8:{3B4C3F9D-2308-49A2-889A-57118C8DF4C3}"
-        "UpgradeCode" = "8:{1C7E5250-0909-48DE-9EEE-92A1936DEF96}"
+        "ProductCode" = "8:{160488DB-A9B7-4B5F-AA1D-01D2ED11B775}"
+        "PackageCode" = "8:{A72F2EAC-9872-42E6-8DBB-09AAC10C555A}"
+        "UpgradeCode" = "8:{EF3C3EDC-AB71-4BD9-A36C-1754D3807C91}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
-        "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:0.2.0"
-        "Manufacturer" = "8:Microsoft"
+        "InstallAllUsers" = "11:TRUE"
+        "ProductVersion" = "8:1.0.0"
+        "Manufacturer" = "8:Gitcorp"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Setup"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Microsoft"
+        "ARPCONTACT" = "8:Gitmanik"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:"
-        "ARPURLINFOABOUT" = "8:"
+        "ARPCOMMENTS" = "8:0.0.0.1"
+        "ARPURLINFOABOUT" = "8:https://gitmanik.dev"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
         "TargetPlatform" = "3:1"
-        "PreBuildEvent" = "8:"
+        "PreBuildEvent" = "8:powershell -ExecutionPolicy Unrestricted $(ProjectDir)..\\UpdateVersions.ps1"
         "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"
         }
@@ -597,7 +548,7 @@
                                                                     "Condition" = "8:"
                                                                     "Transitive" = "11:FALSE"
                                                                     "ValueTypes" = "3:1"
-                                                                    "Value" = "8:Extension for OneNote"
+                                                                    "Value" = "8:GitNote by Gitmanik"
                                                                     }
                                                                     "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_7E8554D2748B49C8AEEBD31F38F0A3AE"
                                                                     {
@@ -817,6 +768,52 @@
                                     "Transitive" = "11:FALSE"
                                         "Keys"
                                         {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_FC05E6BE7C9F4BCFB596D629364F1E52"
+                                            {
+                                            "Name" = "8:[ARPCOMMENTS]"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_2F4E51E7FD284B74AF7607EB6D0F25D7"
+                                                    {
+                                                    "Name" = "8:CodeBase"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:[TARGETDIR]Gitmanik.GitNote.dll"
+                                                    }
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_5114C05B973E41988B25C1B2D594F0C7"
+                                                    {
+                                                    "Name" = "8:Class"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:Gitmanik.GitNote.AddIn"
+                                                    }
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_5484CDEDB19C4DE7A4A3C2F30A8BD841"
+                                                    {
+                                                    "Name" = "8:Assembly"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:Gitmanik.GitNote, Version=[ProductVersion], Culture=neutral, PublicKeyToken=null"
+                                                    }
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_F8E463BF3B12455283B4C41991DB57D3"
+                                                    {
+                                                    "Name" = "8:RuntimeVersion"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:v4.0.30319"
+                                                    }
+                                                }
+                                            }
                                         }
                                         "Values"
                                         {
@@ -1105,7 +1102,7 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-                            "Value" = "8:"
+                            "Value" = "8:_1C4EADB9A05140EDAD8223D146C2BDB6"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "Sunken"
@@ -1200,7 +1197,7 @@
                             "ContextData" = "8:1;True=1;False=0"
                             "Attributes" = "3:0"
                             "Setting" = "3:0"
-                            "Value" = "3:1"
+                            "Value" = "3:0"
                             "DefaultValue" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -1454,8 +1451,8 @@
                             "Type" = "3:15"
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
-                            "Setting" = "3:1"
-                            "Value" = "8:#1258"
+                            "Setting" = "3:2"
+                            "Value" = "8:"
                             "DefaultValue" = "8:#1258"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -1508,7 +1505,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_692D7E391D074D36AD2530720FB8D6C4"
             {
-            "SourcePath" = "8:..\\GitNote\\obj\\x64\\Debug\\Gitmanik.GitNote.dll"
+            "SourcePath" = "8:..\\GitNote\\obj\\x86\\Release\\Gitmanik.GitNote.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_76DE0C3E4C3C41398EBF2960C9F81C36"

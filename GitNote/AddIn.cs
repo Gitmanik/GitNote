@@ -1,24 +1,15 @@
-﻿/*
- *  Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
- */
-
+﻿using Extensibility;
+using Gitmanik.GitNote.Utilities;
+using Microsoft.Office.Core;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using Extensibility;
-using Microsoft.Office.Core;
-using Gitmanik.GitNote.Utilities;
-using Application = Microsoft.Office.Interop.OneNote.Application;  // Conflicts with System.Windows.Forms
-
-#pragma warning disable CS3003 // Type is not CLS-compliant
+using Application = Microsoft.Office.Interop.OneNote.Application;
 
 namespace Gitmanik.GitNote
 {
@@ -26,8 +17,7 @@ namespace Gitmanik.GitNote
 	[Guid("7562BB0E-F7F7-4B01-A3BA-9FD8C5711F14"), ProgId("Gitmanik.GitNote")]
 	public class AddIn : IDTExtensibility2, IRibbonExtensibility
 	{
-		protected Application OneNoteApplication
-		{ get; set; }
+		protected Application OneNoteApplication { get; set; }
 
 		private MainForm mainForm;
 
@@ -55,12 +45,6 @@ namespace Gitmanik.GitNote
 		/// <param name="custom"></param>
 		public void OnBeginShutdown(ref Array custom)
 		{
-			this.mainForm?.Invoke(new Action(() =>
-			{
-				// close the form on the forms thread
-				this.mainForm?.Close();
-				this.mainForm = null;
-			}));
 		}
 
 		/// <summary>
@@ -73,19 +57,9 @@ namespace Gitmanik.GitNote
 		/// <param name="custom"></param>
 		public void OnConnection(object Application, ext_ConnectMode ConnectMode, object AddInInst, ref Array custom)
 		{
-			SetOneNoteApplication((Application)Application);
+			OneNoteApplication = ((Application)Application);
 		}
 
-		public void SetOneNoteApplication(Application application)
-		{
-			OneNoteApplication = application;
-		}
-
-		/// <summary>
-		/// Cleanup
-		/// </summary>
-		/// <param name="RemoveMode"></param>
-		/// <param name="custom"></param>
 		[SuppressMessage("Microsoft.Reliability", "CA2001:AvoidCallingProblematicMethods", MessageId = "System.GC.Collect")]
 		public void OnDisconnection(ext_DisconnectMode RemoveMode, ref Array custom)
 		{
@@ -100,15 +74,38 @@ namespace Gitmanik.GitNote
 
 		public async Task GitNoteButtonClicked(IRibbonControl control)
 		{
-			MessageBox.Show("GitNote button pushed! Now we'll load up the full XML hierarchy as well as the current page XML. This may take some time.");
 			ShowForm();
 			return;
 		}
 
+		public async Task GitNoteButtonClickedMath(IRibbonControl control)
+		{
+			micautLib.MathInputControl ctrl = new micautLib.MathInputControlClass();
+			ctrl.EnableExtendedButtons(true);
+			ctrl.SetCaptionText("ghitmenm");
+			ctrl.Insert += Ctrl_Insert;
+			ctrl.Close += () =>
+			{
+				ctrl.Hide();
+			};
+			ctrl.Show();
+			return;
+		}
+
+		private void Ctrl_Insert(string RecoResult)
+		{
+			MessageBox.Show(RecoResult);
+		}
+
 		private void ShowForm()
 		{
-			this.mainForm = new MainForm(this.OneNoteApplication);
-			System.Windows.Forms.Application.Run(this.mainForm);
+			mainForm = new MainForm(OneNoteApplication);
+			System.Windows.Forms.Application.Run(mainForm);
+			mainForm?.Invoke(new Action(() =>
+			{
+				mainForm?.Close();
+				mainForm = null;
+			}));
 		}
 
 		/// <summary>
