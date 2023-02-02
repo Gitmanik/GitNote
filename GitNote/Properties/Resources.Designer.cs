@@ -72,6 +72,16 @@ namespace Gitmanik.GitNote.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Info {
+            get {
+                object obj = ResourceManager.GetObject("Info", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo {
             get {
                 object obj = ResourceManager.GetObject("Logo", resourceCulture);
@@ -82,16 +92,12 @@ namespace Gitmanik.GitNote.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;customUI xmlns=&quot;http://schemas.microsoft.com/office/2006/01/customui&quot; loadImage=&quot;GetImage&quot;&gt;
-        ///    &lt;ribbon&gt;
-        ///        &lt;tabs&gt;
-        ///          &lt;tab idMso=&quot;TabHome&quot;&gt;
-        ///                &lt;group id=&quot;groupGitNote&quot; label=&quot;GitNote&quot;&gt;
-        ///                    &lt;button id=&quot;buttonGitNote&quot; label=&quot;GitNote&quot; size=&quot;large&quot; screentip=&quot;GitNote&quot; onAction=&quot;GitNoteButtonClicked&quot; image=&quot;Logo.png&quot;/&gt;
-        ///                &lt;/group&gt;
-        ///            
-        ///          &lt;/tab&gt;
-        ///            &lt;tab id=&quot;tabGitNote2&quot; label=&quot;GitNote2&quot;&gt;
-        ///        [rest of string was truncated]&quot;;.
+        ///  &lt;ribbon&gt;
+        ///    &lt;tabs&gt;
+        ///      &lt;tab idMso=&quot;TabHome&quot;&gt;
+        ///        &lt;group id=&quot;groupGitNote&quot; label=&quot;GitNote&quot;&gt;
+        ///          &lt;button id=&quot;buttonGitNoteHome&quot; label=&quot;GitNote&quot; size=&quot;large&quot; screentip=&quot;GitNote&quot; onAction=&quot;GitNoteButtonClicked&quot; image=&quot;Info.png&quot; /&gt;
+        ///          &lt;button id=&quot;buttonGitNoteMathHome&quot; label=&quot;Math Panel Test&quot; size=&quot;large&quot; screentip=&quot;nat2htest&quot; onAction=&quot;GitNoteButtonClickedMat [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ribbon {
             get {

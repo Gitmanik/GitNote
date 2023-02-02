@@ -4,14 +4,16 @@
     <tabs>
       <tab idMso="TabHome">
         <group id="groupGitNote" label="GitNote">
-          <button id="buttonGitNoteHome" label="GitNote" size="large" screentip="GitNote" onAction="GitNoteButtonClicked" image="Logo.png" />
-          <button id="buttonGitNoteMathHome" label="Math Panel Test" size="large" screentip="nat2htest" onAction="GitNoteButtonClickedMath" image="Logo.png" />
+          <button id="buttonGitNoteInfo2" label="Info" size="large" screentip="Show debug info" onAction="GitNoteButtonClickedInfo" image="Info" />
+          <button id="buttonGitNoteHome" label="GitNote" size="large" screentip="GitNote" onAction="GitNoteButtonClicked" image="Logo" />
+          <button id="buttonGitNoteMathHome" label="Math Panel Test" size="large" screentip="nat2htest" onAction="GitNoteButtonClickedMath" image="Logo" />
         </group>
       </tab>
       <tab id="tabGitNote" label="GitNote">
-        <group id="groupGitNote" label="GitNote">
-          <button id="buttonNewSetup" label="GitNote" size="large" screentip="GitNote" onAction="GitNoteButtonClickedMath" image="Logo.png" />
-          <button id="buttonGitNoteMath" label="Math Panel Test" size="large" screentip="MathTest" onAction="GitNoteButtonClickedMath" image="Logo.png" />
+        <group id="groupGitNoteMain" label="GitNote">
+          <button id="buttonGitNoteInfo" label="Info" size="large" screentip="Show debug info" onAction="GitNoteButtonClickedInfo" image="Info" />
+          <button id="buttonNewSetup" label="GitNote" size="large" screentip="GitNote" onAction="GitNoteButtonClickedMath" image="Logo" />
+          <button id="buttonGitNoteMath" label="Math Panel Test" size="large" screentip="MathTest" onAction="GitNoteButtonClickedMath" image="Logo" />
         </group>
       </tab>
     </tabs>

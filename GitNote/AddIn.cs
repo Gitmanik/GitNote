@@ -1,15 +1,17 @@
 ﻿using Extensibility;
 using Gitmanik.GitNote.Utilities;
 using Microsoft.Office.Core;
+using Microsoft.Office.Interop.OneNote;
+using NLog;
 using System;
-using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Application = Microsoft.Office.Interop.OneNote.Application;
 
 namespace Gitmanik.GitNote
 {
@@ -17,19 +19,40 @@ namespace Gitmanik.GitNote
 	[Guid("7562BB0E-F7F7-4B01-A3BA-9FD8C5711F14"), ProgId("Gitmanik.GitNote")]
 	public class AddIn : IDTExtensibility2, IRibbonExtensibility
 	{
-		protected Application OneNoteApplication { get; set; }
+#pragma warning disable CS3001 // Argument type is not CLS-compliant
+#pragma warning disable CS3003 // Type is not CLS-compliant
 
-		private MainForm mainForm;
+		private static NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+
+		protected IApplication OneNoteApplication
+		{ get; set; }
+
+		protected micautLib.MathInputControl mathInputControl;
 
 		public AddIn()
 		{
+			AppDomain.CurrentDomain.UnhandledException += CatchUnhandledException;
+
+			NLog.Config.LoggingConfiguration nlog_config = new NLog.Config.LoggingConfiguration();
+			NLog.Targets.FileTarget nlog_logfile = new NLog.Targets.FileTarget("logfile")
+			{
+				Layout = "${longdate}\t${level:uppercase=true}\t${logger}\t${message:withexception=true}",
+				FileName = "F:/Logs.txt",
+				ArchiveEvery = NLog.Targets.FileArchivePeriod.Day,
+				MaxArchiveDays = 30,
+				ArchiveNumbering = NLog.Targets.ArchiveNumberingMode.Date,
+				ArchiveFileName = "F:/Logs.{##}.txt",
+			};
+
+			nlog_config.AddRule(LogLevel.Debug, LogLevel.Fatal, nlog_logfile);
+			NLog.LogManager.Configuration = nlog_config;
 		}
 
-		/// <summary>
-		/// Returns the XML in Ribbon.xml so OneNote knows how to render our ribbon
-		/// </summary>
-		/// <param name="RibbonID"></param>
-		/// <returns></returns>
+		private void CatchUnhandledException(object sender, UnhandledExceptionEventArgs e)
+		{
+			Logger.Fatal($"Unhandled Exception:\n{(Exception)e.ExceptionObject}");
+		}
+
 		public string GetCustomUI(string RibbonID)
 		{
 			return Properties.Resources.ribbon;
@@ -37,86 +60,121 @@ namespace Gitmanik.GitNote
 
 		public void OnAddInsUpdate(ref Array custom)
 		{
+			Logger.Info("OnAddInsUpdate");
 		}
 
-		/// <summary>
-		/// Cleanup
-		/// </summary>
-		/// <param name="custom"></param>
 		public void OnBeginShutdown(ref Array custom)
 		{
+			Logger.Info("OnBeginShutdown");
 		}
 
-		/// <summary>
-		/// Called upon startup.
-		/// Keeps a reference to the current OneNote application object.
-		/// </summary>
-		/// <param name="application"></param>
-		/// <param name="connectMode"></param>
-		/// <param name="addInInst"></param>
-		/// <param name="custom"></param>
 		public void OnConnection(object Application, ext_ConnectMode ConnectMode, object AddInInst, ref Array custom)
 		{
-			OneNoteApplication = ((Application)Application);
+			Logger.Info("OnConnection. ConnectMode: {ConnectMode}");
+
+			//SetOneNoteApplication((Application)Application);
+
+			//mathInputControl = new micautLib.MathInputControlClass();
+			//mathInputControl.EnableExtendedButtons(true);
+			//mathInputControl.SetCaptionText("ghitmenm");
+			//mathInputControl.Insert += (string res) =>
+			//{
+			//	MessageBox.Show(res);
+			//};
+			//mathInputControl.Close += () =>
+			//{
+			//	mathInputControl.Hide();
+			//};
 		}
 
-		[SuppressMessage("Microsoft.Reliability", "CA2001:AvoidCallingProblematicMethods", MessageId = "System.GC.Collect")]
+		//public void SetOneNoteApplication(Application application)
+		//{
+		//	OneNoteApplication = application;
+		//}
+
 		public void OnDisconnection(ext_DisconnectMode RemoveMode, ref Array custom)
 		{
+			Logger.Info("OnDisconnection. RemoveMode: {RemoveMode}");
 			OneNoteApplication = null;
+			mathInputControl = null;
+			Logger.Info("Finalized. Bye.");
+			NLog.LogManager.Shutdown();
 			GC.Collect();
 			GC.WaitForPendingFinalizers();
 		}
 
 		public void OnStartupComplete(ref Array custom)
 		{
+			Logger.Info("OnStartupComplete");
+			//GetOneNoteHandle();
 		}
+
+		//private void GetOneNoteHandle()
+		//{
+		//	int retries = 0;
+
+		//	try
+		//	{
+		//		while (retries < 3)
+		//		{
+		//			try
+		//			{
+		//				OneNoteApplication = new Microsoft.Office.Interop.OneNote.Application();
+
+		//				Logger.Info($"Completed successfully after {retries} retries");
+
+		//				retries = int.MaxValue;
+		//			}
+		//			catch (COMException exc)
+		//			{
+		//				retries++;
+		//				var ms = 250 * retries;
+
+		//				Logger.Info($"{exc} OneNote is busy, retyring in {ms}ms");
+		//				System.Threading.Thread.Sleep(ms);
+		//			}
+		//		}
+		//	}
+		//	catch (Exception exc)
+		//	{
+		//		Logger.Info($"{exc} error instantiating OneNote IApplication after {retries} retries", exc);
+		//	}
+		//}
 
 		public async Task GitNoteButtonClicked(IRibbonControl control)
 		{
-			ShowForm();
-			return;
+			Logger.Info("GitNoteButtonClicked. control: {control.Id} {control.Tag} {control.Context}");
+			await Task.Run(() => ShowForm());
 		}
 
 		public async Task GitNoteButtonClickedMath(IRibbonControl control)
 		{
-			micautLib.MathInputControl ctrl = new micautLib.MathInputControlClass();
-			ctrl.EnableExtendedButtons(true);
-			ctrl.SetCaptionText("ghitmenm");
-			ctrl.Insert += Ctrl_Insert;
-			ctrl.Close += () =>
-			{
-				ctrl.Hide();
-			};
-			ctrl.Show();
-			return;
+			Logger.Info("GitNoteButtonClickedMath. control: {control.Id} {control.Tag} {control.Context}");
+			await Task.Run(() => mathInputControl.Show());
 		}
 
-		private void Ctrl_Insert(string RecoResult)
+		public async Task GitNoteButtonClickedInfo(IRibbonControl control)
 		{
-			MessageBox.Show(RecoResult);
+			Logger.Info("GitNoteButtonClickedInfo. control: {control.Id} {control.Tag} {sscontrol.Context}");
+			await Task.Run(() => MessageBox.Show($"GitNote by gitmanik.dev\nPersonal OneNote AddIn\nLoaded DLL: {Assembly.GetExecutingAssembly().CodeBase}", "GitNote"));
 		}
 
 		private void ShowForm()
 		{
-			mainForm = new MainForm(OneNoteApplication);
-			System.Windows.Forms.Application.Run(mainForm);
-			mainForm?.Invoke(new Action(() =>
-			{
-				mainForm?.Close();
-				mainForm = null;
-			}));
+			//Logger.Info("ShowForm");
+			//mainForm = new MainForm(OneNoteApplication);
+			//System.Windows.Forms.Application.Run(mainForm);
+			//mainForm?.Invoke(new Action(() =>
+			//{
+			//	mainForm?.Close();
+			//}));
 		}
 
-		/// <summary>
-		/// Specified in Ribbon.xml, this method returns the image to display on the ribbon button
-		/// </summary>
-		/// <param name="imageName"></param>
-		/// <returns></returns>
 		public IStream GetImage(string imageName)
 		{
+			Logger.Info($"GetImage. imageName: {imageName}");
 			MemoryStream imageStream = new MemoryStream();
-			Properties.Resources.Logo.Save(imageStream, ImageFormat.Png);
+			((Bitmap)Properties.Resources.ResourceManager.GetObject(imageName)).Save(imageStream, ImageFormat.Png);
 			return new CCOMStreamWrapper(imageStream);
 		}
 	}
